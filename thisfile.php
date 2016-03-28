@@ -24,6 +24,16 @@
 //
 // google spreadsheetにoutput.tsvをupload
 //
+// 定期実行用crontab設定(mac)
+// $ export EDITOR=/usr/bin/vim
+// 
+// 毎週月曜日AM10:00
+// $ crontab -e
+// 00 10 * * 1 php /Users/HOGEHOGE_YOURNAME/fetch_test/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
+//
+// 確認
+// $ crotab -l
+//
 
 require_once __DIR__ . '/vendor/autoload.php';
 $client = new Goutte\Client();
