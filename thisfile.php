@@ -20,7 +20,7 @@
 // $ php thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
 //
 // 確認(文字コード:utf-8)
-// $ cat output.tsv
+// $ cat ~/fetch_test/output.tsv
 //
 // google spreadsheetにoutput.tsvをupload
 //
