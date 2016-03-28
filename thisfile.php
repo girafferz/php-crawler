@@ -13,6 +13,9 @@
 // http://blog.asial.co.jp/1316
 // $ php composer.phar require fabpot/goutte:~2.0
 //
+// このファイルをコピペ (もしくはgit clone)
+// $ vim thisfile.php
+//
 // 実行
 // $ php thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
 //
