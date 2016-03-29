@@ -1,6 +1,10 @@
 <?php
 // thisfile.php
 
+// php ver5.5 準備(awsの場合)
+// $ sudo yum remove php-* httpd-* -y
+// $ sudo yum install php55 httpd24 -y 
+//
 // 作業ディレクトリ
 // $ mkdir ~/fetch_test/
 // $ cd ~/fetch_test/
