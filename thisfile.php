@@ -35,8 +35,11 @@
 // $ export EDITOR=/usr/bin/vim
 // 
 // 毎週月曜日AM10:00
-// $ crontab -e
+// $ crontab -e (mac)
 // 00 10 * * 1 php /Users/HOGEHOGE_YOURNAME/fetch_test/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
+//
+// $ crontab -e (AWS)
+// 00 10 * * 1 php /home/ec2-user/fetch_test/fetch_test/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
 //
 // 確認
 // $ crotab -l
