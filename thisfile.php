@@ -58,6 +58,7 @@ $crawler = $crawler->filter('.item');
 $stack = array();
 $crawler->each(function($node, $num) use (&$stack) {
   $one = array();
+  $attr = trim($node->attr('data-id'));
   $detail = $node->filter('.detail');
   $a = $detail->filter('a');
   $cprice_area = $detail->filter('.cprice-area');
@@ -67,7 +68,7 @@ $crawler->each(function($node, $num) use (&$stack) {
   $desc = trim($a->text());
   $total_sales = trim($sale_area->text());
 
-  array_push($one, $num, $price, $desc, $total_sales);
+  array_push($one, $num, $attr, $price, $desc, $total_sales);
 
   if ($node->filter('.rates')->count()) {
       $rates = $node->filter('.rates')->filter('a');
