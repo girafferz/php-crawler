@@ -39,7 +39,7 @@
 // 00 10 * * 1 php /Users/HOGEHOGE_YOURNAME/fetch_test/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
 //
 // $ crontab -e (AWS)
-// 00 10 * * 1 php /home/ec2-user/fetch_test/fetch_test/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y"
+//00 00 * * * php /home/ec2-user/git/prod/php-crawler/thisfile.php "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.93.kTl2mT&search=y&orderType=hotsell_desc&tsearch=y" >> /home/ec2-user/hoge.out 2>&1
 //
 // 確認
 // $ crotab -l
