@@ -45,10 +45,10 @@
 // $ crotab -l
 //
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/fetch_test/vendor/autoload.php';
 $client = new Goutte\Client();
 
-$url = "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.90.ZquzGL&search=y&orderType=defaultSort&tsearch=y";
+$url = "https://kirindo.tmall.hk/search.htm?spm=a1z10.3-b.w4011-5996267154.93.kTl2mT&search=y&orderType=hotsell_desc&tsearch=y";
 $url = $argv[1];
 
 $crawler = $client->request('GET', $url);
@@ -77,7 +77,10 @@ $crawler->each(function($node, $num) use (&$stack) {
   array_push($stack, $one);
 });
 
-$filename = "output.tsv";
+date_default_timezone_set("asia/tokyo");
+$datetime = date('Ymd_His', time());
+$filename = '/var/www/html/tsv/' . $datetime . '.tsv';
+
 foreach ($stack as $line) {
   $l = implode($line, "\t"). "\n";
   //UTF-8形式で書き出し
