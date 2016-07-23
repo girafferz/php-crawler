@@ -45,6 +45,7 @@
 // 確認
 // $ crotab -l
 //
+date_default_timezone_set("asia/tokyo");
 
 require_once __DIR__ . '/fetch_test/vendor/autoload.php';
 $client = new Goutte\Client();
@@ -56,8 +57,16 @@ $crawler = $client->request('GET', $url);
 $crawler = $crawler->filter('.item5line1');
 $crawler = $crawler->filter('.item');
 
+//$datetime = date('Ymd_His', $now);
+//$filename = '/var/www/html/tsv/' . $datetime . '.tsv';
+$filename = '/var/www/html/tsv/output.tsv';
+
 $stack = array();
 $crawler->each(function($node, $num) use (&$stack) {
+  $now = time();
+  $year = date('Y', $now);
+  $month = date('m', $now);
+  $day = date('d', $now);
   $one = array();
   $attr = trim($node->attr('data-id'));
   $detail = $node->filter('.detail');
@@ -69,7 +78,7 @@ $crawler->each(function($node, $num) use (&$stack) {
   $desc = trim($a->text());
   $total_sales = trim($sale_area->text());
 
-  array_push($one, $num, $attr, $price, $desc, $total_sales);
+  array_push($one, $num, $year, $month, $day, $attr, $price, $desc, $total_sales);
 
   if ($node->filter('.rates')->count()) {
       $rates = $node->filter('.rates')->filter('a');
@@ -79,10 +88,6 @@ $crawler->each(function($node, $num) use (&$stack) {
   array_push($stack, $one);
 });
 
-date_default_timezone_set("asia/tokyo");
-$datetime = date('Ymd_His', time());
-$filename = '/var/www/html/tsv/' . $datetime . '.tsv';
-
 foreach ($stack as $line) {
   $l = implode($line, "\t"). "\n";
   //UTF-8形式で書き出し
@@ -91,4 +96,5 @@ foreach ($stack as $line) {
   file_put_contents($filename, $l, FILE_APPEND);
 }
 
+exec("cut -f 1,2,3,4,8,9 /var/www/html/tsv/output.tsv > /var/www/html/tsv/totalsalse_rating.tsv");
 
