@@ -1,6 +1,7 @@
 <?php
 // thisfile.php
 
+
 // aws login
 // $ ssh -i /Users/HOGEHOGE_YOURNAME/.ssh/your_key_file.pem ec2-user@55.55.55.100 (<-IP of aws)
 //
