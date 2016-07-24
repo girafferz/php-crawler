@@ -57,7 +57,8 @@ $crawler = $client->request('GET', $url);
 $crawler = $crawler->filter('.item5line1');
 $crawler = $crawler->filter('.item');
 
-//$datetime = date('Ymd_His', $now);
+$now = time();
+$datetime = date('Ymd_His', $now);
 //$filename = '/var/www/html/tsv/' . $datetime . '.tsv';
 $filename = '/var/www/html/tsv/output.tsv';
 
@@ -97,4 +98,6 @@ foreach ($stack as $line) {
 }
 
 exec("cut -f 1,2,3,4,8,9 /var/www/html/tsv/output.tsv > /var/www/html/tsv/totalsalse_rating.tsv");
+exec("cp /var/www/html/tsv/output.tsv /var/www/html/tsv/output." . $datetime . ".tsv");
+exec("cp /var/www/html/tsv/totalsalse_rating.tsv /var/www/html/tsv/totalsalse_rating." . $datetime . ".tsv");
 
